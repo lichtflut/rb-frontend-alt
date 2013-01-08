@@ -1,4 +1,4 @@
-class EntityController < ApplicationController
+class EntitiesController < ApplicationController
   def index
   end
 

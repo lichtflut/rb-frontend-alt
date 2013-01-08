@@ -1,11 +1,8 @@
 Frontend::Application.routes.draw do
-  get "entity/index"
 
-  get "entity/show"
+  root :to => "entities#index"
 
-  get "entity/new"
-
-  get "entity/delete"
+  resources :entities
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
