@@ -1,4 +1,12 @@
 Frontend::Application.routes.draw do
+  get "entity/index"
+
+  get "entity/show"
+
+  get "entity/new"
+
+  get "entity/delete"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
