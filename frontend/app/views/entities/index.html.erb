@@ -1,4 +1,7 @@
 <h1> Entities </h1>
+<br />
+<p></p>
+
 <% @entities.each do |entity| %>
     <% @entity = entity %>
     <%=  render :partial => "render_entity", :locals => {:entity => @entity} %>

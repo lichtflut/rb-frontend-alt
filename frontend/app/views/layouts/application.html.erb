@@ -32,26 +32,27 @@
       <% else %>
           <%= link_to 'Logout', logout_path %>
       <% end %>
-      <span class="delim-small">&gt;</span>
+      <!--<span class="delim-small">&gt;</span>
       <a href="stellenangebote.html">Jobs</a>
       <span class="delim-small">&gt;</span>
-      <a href="kontakt.html">Kontakt</a>
+      <a href="kontakt.html">Kontakt</a>       -->
     </div>
     <div id="header-middle-line">
-      <span class="logo">lichtflut</span> <span class="logo-extension">Forschungs- und Entwicklungsgesellschaft</span>
+      <span class="logo">lichtflut</span> <span class="logo-extension"><em style="font-size: 20pt;">EntityBrowser</em> </span>
     </div>
     <div id="header-navigation">
       <div class="menu-item active">
-        <a href="start.html">Start</a>
+        <%= link_to 'Entities', entities_path %>
       </div>
       <div class="menu-item-delim"></div>
-      <div class="menu-item">
+      <!--<div class="menu-item">
         <a href="unternehmen.html">Test</a>
-      </div>
+      </div>    -->
     </div>
   </div>
   <div id="site-main">
-
+    <br />
+    <p></p>
     <%= yield %>
 
   </div>
