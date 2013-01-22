@@ -1,14 +1,60 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-  <title>Frontend</title>
+  <title>
+    lichtflut Forschungs- und Entwicklungsgesellschaft mbH
+  </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "init.css", "site-structure.css", "content.css", "slideshow.css", :media => "screen" %>
+  <%= javascript_include_tag "application" , "jquery-1.7.1.min.js" , "lichtflut-web.js" %>
+
   <%= csrf_meta_tags %>
+
+  <meta content="text/html;charset=utf-8">
+  <meta charset="utf-8">
+
+  <!--[if IE 6]>
+  <style type="text/css">@import url(css/ie6.css);</style>
+  <![endif]-->
+
+
 </head>
 <body>
+<div id="page-background">
+  <img src="<%= asset_path('site_background.png') %>" width="100%" height="100%" alt="background">
+</div>
+<div id="site-wrapper">
+  <div id="site-header">
+    <div id="header-top-line">
+      <span class="delim-small">&gt;</span>
+      <% if session[:session_token].nil? %>
+          <%= link_to 'Login', :controller => :sessions, :action => :new %>
+      <% else %>
+          <%= link_to 'Logout', logout_path %>
+      <% end %>
+      <span class="delim-small">&gt;</span>
+      <a href="stellenangebote.html">Jobs</a>
+      <span class="delim-small">&gt;</span>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div id="header-middle-line">
+      <span class="logo">lichtflut</span> <span class="logo-extension">Forschungs- und Entwicklungsgesellschaft</span>
+    </div>
+    <div id="header-navigation">
+      <div class="menu-item active">
+        <a href="start.html">Start</a>
+      </div>
+      <div class="menu-item-delim"></div>
+      <div class="menu-item">
+        <a href="unternehmen.html">Test</a>
+      </div>
+    </div>
+  </div>
+  <div id="site-main">
 
-<%= yield %>
+    <%= yield %>
 
+  </div>
+</div>
 </body>
 </html>

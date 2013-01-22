@@ -1,0 +1,57 @@
+/* SLIDE SHOW STUFF */ 
+
+div.slide-container {
+    margin:0 auto;
+    height: 359px;
+    width: 876px;  /*reduced by 20px to allow scrollbar, when js is disabled*/
+    overflow: hidden; /* allow scrollbar */
+    position:relative;
+}
+
+div.slide {
+    padding-top: 15px;
+    height:344px;
+    width: 876px;
+    overflow:hidden;
+}
+
+div.slide.lf-sky{
+    background: url('content/lf_sky.png') 300px 0px no-repeat;
+}
+
+div.slide.arastreju {
+    background: url('content/slide-arastreju.png') 0px 0px no-repeat;
+}
+
+div.slide p {
+    color: #415660;
+    font-size:12pt;
+    line-height: 25px; 
+    width: 400px;
+}
+
+/**
+ * Slideshow controls style rules.
+ */
+.control {
+  display:block;
+  width:39px;
+  height:80px;
+  text-indent:-10000px;
+  position:absolute;
+  cursor: pointer;
+}
+
+#leftControl {
+  top:315px;
+  left:0;
+  margin-left: -60px;
+  background:transparent url('teaser_arrow_left.png') no-repeat 0 0;
+}
+
+#rightControl {
+  top:315px;
+  right:0;
+  margin-right: -20px;
+  background:transparent url('teaser_arrow_right.png') no-repeat 0 0;
+}

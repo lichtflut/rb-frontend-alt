@@ -1,17 +1,7 @@
 <h1> Entities </h1>
 <% @entities.each do |entity| %>
-    ID: <%= link_to entity.originalID, :controller => 'entities', :action => 'show', :id => entity.id %><br />
-    Associtations:
-    <%  entity.associations.each do |assoc| %>
-        <br />
-        <%=  assoc.predicate %> -
-        <%  if assoc.is_entity_assoc %>
-            <%= link_to assoc.object.originalID, :controller => 'entities', :action => 'show', :id => assoc.object.id %>
-        <% else %>
-            <%= assoc.object %>
-        <% end %>
-    <% end %>
-    <br />
+    <% @entity = entity %>
+    <%=  render :partial => "render_entity", :locals => {:entity => @entity} %>
     <hr />
 <% end %>
 

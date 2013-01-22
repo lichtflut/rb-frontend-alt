@@ -1,0 +1,17 @@
+html {
+	overflow-y:hidden;
+}
+
+body {
+	overflow-y:auto;
+}
+
+div#page-background {
+	position:absolute; 
+	z-index:-1;
+}
+
+div#site-wrapper {
+	position:static;
+	padding:10px;
+}

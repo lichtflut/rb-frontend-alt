@@ -1,0 +1,65 @@
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td
+{
+	margin: 0;
+	padding: 0;
+}
+
+html, body {height:100%;}
+
+html {
+	font: 10pt Tahoma, Verdana, Helvetica, sans-serif;
+	color: #415660;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+h1 {
+	font: 20pt Tahoma, Verdana, Helvetica, sans-serif;
+	margin-top: 14px;
+	color: #2293c7;
+}
+
+h2 {
+	font: 16pt Tahoma, Verdana, Helvetica, sans-serif;
+	margin-top: 10px;
+	color: #2293c7;
+}
+
+h3 {
+	font: 12pt Tahoma, Verdana, Helvetica, sans-serif;
+	margin-top: 6px;
+	color: #2293c7;
+}
+
+p {
+	font: 10pt Tahoma, Verdana, Helvetica, sans-serif;
+	line-height: 15p;
+	margin-top: 8px;
+}
+
+ul {
+	margin: 5px 0 2px 0;
+}
+
+li {
+	margin-left: 20px;
+	line-height: 25px;
+}
+
+a {
+	text-decoration: none;
+	color: #2293c7;
+}
+
+a:hover {
+}
+
+a:visited {
+}
+
+table {
+	border-collapse: collapse;
+}

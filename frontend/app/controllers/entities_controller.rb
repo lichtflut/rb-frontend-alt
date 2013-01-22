@@ -3,32 +3,14 @@ require 'rest_client'
 
 class EntitiesController < ApplicationController
 
-  def initialize
-
-  end
-
+  before_filter :check_authorization
 
   def index
     response = RestClient.get 'http://localhost:8080/brouker/service/entities'
-    @json_response = response.to_str
-    @json  = ActiveSupport::JSON.decode(@json_response)
+    json  = ActiveSupport::JSON.decode(response.to_str)
     @entities = Array.new
-    @json["entities"].each do |e|
-      entity = Entity.new
-      entity.originalID= e["id"]
-      e["associations"].each do |a|
-        assoc = Assoc.new
-        assoc.predicate= a["predicate"]
-        assoc.object= a["object"]
-        if  a["entityAssoc"] == true
-          assoc.is_entity_assoc = true
-          assoc.object = Entity.new
-          assoc.object.originalID = a["object"]
-        end
-        entity.associations= assoc
-      end
-
-      @entities << entity
+    json["entities"].each do |e|
+      @entities << map_json_rsp_to_entity(e)
     end
 
     # respond_to do |format|
@@ -46,20 +28,7 @@ class EntitiesController < ApplicationController
     id = params[:id]
     response = RestClient.get ('http://localhost:8080/brouker/service/entities/' << id)
     json = ActiveSupport::JSON.decode(response.to_str)
-
-    @entity = Entity.new
-    @entity.originalID= json["id"]
-    json["associations"].each do |a|
-      assoc = Assoc.new
-      assoc.predicate= a["predicate"]
-      assoc.object= a["object"]
-      if  a["entityAssoc"] == true
-        assoc.is_entity_assoc = true
-        assoc.object = Entity.new
-        assoc.object.originalID = a["object"]
-      end
-      @entity.associations= assoc
-    end
+    @entity = map_json_rsp_to_entity(json)
   end
 
   #-------------------------------
@@ -72,6 +41,23 @@ class EntitiesController < ApplicationController
 
   def delete
 
+  end
+
+  def map_json_rsp_to_entity(json_object)
+    entity = Entity.new
+    entity.originalID= json_object["id"]
+    json_object["associations"].each do |a|
+      assoc = Assoc.new
+      assoc.predicate= a["predicate"]
+      assoc.object= a["object"]
+      if  a["entityAssoc"] == true
+        assoc.is_entity_assoc = true
+        assoc.object = Entity.new
+        assoc.object.originalID = a["object"]
+      end
+      entity.associations= assoc
+    end
+    entity
   end
 
 end

@@ -1,0 +1,56 @@
+
+div#page-background {
+	position:fixed; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%;
+}
+
+div#site-wrapper {
+	width:960px;
+	min-height:900px;
+	margin-left: auto;
+	margin-right: auto;
+	position:relative; 
+	z-index:1; 
+}
+
+div#site-header {
+	height: 145px;
+}
+
+div#header-top-line {
+	text-align: right;
+	height: 20px;
+	padding: 5px 5px 0 0;
+}
+
+div#header-top-line a {
+	font-size: 8pt;
+	color: #575757;
+}
+
+div#header-middle-line {
+	text-align: left;
+	height:84px;
+	padding: 0 2px;
+}
+
+div#header-navigation {
+	clear:both;
+	float:none;
+}
+
+div#site-main {
+	background: url("main_shadow_top.png") no-repeat 0 0px;
+	min-width:960px;
+	min-height:30px;
+}
+
+div#site-footer {
+	display: inline-block;
+	clear: both;
+	float: none;
+	margin-bottom: 20px;
+}

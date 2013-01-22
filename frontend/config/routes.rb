@@ -4,6 +4,18 @@ Frontend::Application.routes.draw do
 
   resources :entities
 
+  resource :sessions do
+    member do
+      get 'new'
+      delete 'destroy'
+      post 'create'
+    end
+  end
+
+  match "logout" => "sessions#destroy"
+
+  #match 'session/new' => 'sessions#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

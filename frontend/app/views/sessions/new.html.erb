@@ -1,0 +1,24 @@
+<h1>Login</h1>
+<br />
+<p></p>
+
+
+<%= form_tag sessions_path, :method => :post do %>
+    <table class="login-table">
+      <tr>
+        <td style="padding: 4px; vertical-align: top;" width="180"><label for="login">UserID</label></td>
+        <td style="padding: 4px; vertical-align: top;"><%= text_field_tag :login, nil, :id => "userID" %></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px; vertical-align:top;" width="180"> <label for="login">Password</label></td>
+        <td style="padding: 4px; vertical-align:top;" > <%= password_field_tag :login, nil, :id => "passwd" %></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px; vertical-align: top;" colspan="2">
+          <%= hidden_field_tag :ref_url, @ref_url  %>
+          <button type="submit"><span>Login</span></button>
+        </td>
+      </tr>
+    </table>
+<%end %>
+</fieldset>

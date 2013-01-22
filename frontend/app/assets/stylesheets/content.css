@@ -1,0 +1,285 @@
+/* COMMON */
+
+span.delim-small {
+	color: #2293c7;
+	padding-left: 10px;
+}
+
+.panel-header {
+	color: #3399cc;
+	font-size: 18pt;
+}
+
+.logo {
+	float:left;
+	text-indent: -1000px;
+	display:inline-block;
+	overflow: hidden;
+	background: url('content/lf-logo.png')  no-repeat 0 0;
+	width:156px;
+	height:50px;
+	margin: 0 3px 0;
+}
+
+.logo-extension {
+	float:left;
+	margin-top: 23px;
+	font: 10pt 'Abel', Verdana, Helvetica, sans-serif;
+	color: #2293c7;
+}
+
+.active .read-on-arrow {
+	background: url('nav_arrow_white.png')  no-repeat  4px;
+}
+
+.read-on-arrow {
+	width: 18px;
+	height: 18px;
+	background: url('read_on_arrow.png')  no-repeat  4px;
+	float:left;
+}
+
+/* MENU */
+
+div.menu-item {
+	padding-top:8px;
+	float:left;
+	height:28px;
+	width: 100px;
+	text-align:center;
+}
+
+div.menu-item.active {
+	background: url('active_menu.png') 0px -4px no-repeat;
+}
+
+div.menu-item a {
+	font-size: 10pt;
+	color: #415660;
+}
+
+div.menu-item.active a {
+	color: #2293c7;
+}
+
+div.menu-item-delim {
+	float:left;
+	background: url('menu_delim.png') 1px 6px no-repeat;
+	width:3px;
+	height:30px;
+}
+
+/* EMPLOYEES */
+
+div.employee-image {
+    margin: 8px 25px 0;
+	width:130px;
+	height:160px;
+	float: left;
+	background-color: #BBB;
+	border: solid 2px #777;
+}
+
+div.employee-image img {
+	margin: -2px;
+	width: 130px;
+	min-height: 160px;
+	border: solid 2px #777;
+}
+
+div.employee-column{
+	width: 735px;
+	float: left;
+	padding-top:55px;
+	height:375px;
+}
+
+div.employee-row {
+	display: inline-block;
+	float: none;
+	clear: both;
+	margin-bottom: 25px;
+}
+
+div.employee-content{
+	float: left;
+	width: 500px;
+	min-height: 180px;
+}
+
+/* TEASERS */
+
+div.teasers {
+	margin-top:40px;
+}
+
+div.teaser-column {
+	margin-right: 15px;
+	float:left;
+}
+
+div.teaser-column.last {
+	margin-right: 0px;
+}
+
+div.teaser-box {
+	width: 310px;
+	height: 175px;
+	background-image: url("small_teaser_box.png");
+	display: inline-block;
+}
+
+div.teaser-image {
+	width: 300px;
+	height:165px;
+	margin: 5px;
+	background-color: #BBB;
+}
+
+div.teaser-box-header {
+	color: #2293c7;
+	font-size:10pt;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+div.teaser-text {
+	padding: 10px 5px;
+	width: 300px;
+	float:none;
+	clear:both;
+}
+
+div.teaser-text.first {
+	padding: 0 5px 10px 5px;
+}
+
+div.teaser-text.shadowed {
+	background: url("small_teaser_shadow.png") no-repeat;
+}
+
+div.teaser-header {
+	color: #2293c7;
+	font-size:9pt;
+	font-weight:bolder;
+	width: 260px;
+}
+
+div.teaser-text.collapsed div.teaser-header {
+	float: left;
+	padding-top: 5px;
+	min-height: 45px;
+}
+
+div.teaser-content {
+    line-height: 18px;
+	width: 260px;
+}
+
+div.teaser-text.collapsed div.teaser-content {
+	display:none;
+}
+
+div.teaser-actions {
+	padding:5px 0 0 18px;
+	width:22px;
+	height:30px;
+	float: left;
+}
+
+div.teaser-text.expanded div.teaser-actions {
+	display:none;
+}
+
+a.teaser-expand-link span {
+	display:inline-block;
+	background: url("teaser_expand_arrow.png") 0 0 no-repeat;
+	width:22px;
+	height:13px;
+	overflow:hidden;
+	text-indent: -1000px;
+}
+
+div.teaser-read-on-link {
+	margin-top: 10px;
+	display:inline-block;
+	background: #fff;
+	padding: 0 4px 0 ;
+}
+
+div.teaser-read-on-link.inline {
+	margin-top: 5px;
+	height: 13px;
+}
+
+div#lower-page-shadow{
+ min-width: 960px;
+ min-height: 30px;
+ background: url("main_shadow_bottom.png");
+ clear:both;
+}
+
+
+/* PRODUCTS */
+
+div.product{
+	width: 330px;
+	float: left;
+	margin-left: 20px;
+	height: 330px;
+	background: url("main_shadow_top_330.png") no-repeat 0 323px;
+}
+
+div.product div {
+	text-align: center;
+}
+
+/* SIDE_BAR */
+
+div#side-bar-left {
+	width: 200px;
+	padding: 62px 15px 0 5px;
+	float:left;
+}
+
+div.side-bar-item {
+	float:none;
+	clear: both;
+	margin: 0 10px 10px 0;
+	padding: 1px 0 2px 0;
+	background-color: #e7eff2;
+}
+
+div.side-bar-item.active{
+	background-color: #2293c7;
+}
+
+div.side-bar-item.active a {
+	color: #fff;
+}
+
+/* CONTENT */
+
+div.content-area {
+	background: url("main_shadow_bottom.png") no-repeat 0 335px;
+	width: 960px;
+	height: 377px;
+	float:none;
+	clear: both;
+}
+
+
+div.content-column {
+	float:left;
+	width: 450px;
+	margin: 10px;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	padding: 0px;
+}
+
+div.content-column.full {
+	width: 700px;
+	min-height: 377px;
+	margin-bottom: 0px;
+}
