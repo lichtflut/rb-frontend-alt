@@ -21,6 +21,14 @@ span.delim-small {
 	margin: 0 3px 0;
 }
 
+.flash-notice {
+    color: #259625;
+}
+
+.flash-error {
+    color: #FF0000;
+}
+
 .logo-extension {
 	float:left;
 	margin-top: 15px;

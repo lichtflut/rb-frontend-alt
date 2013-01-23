@@ -2,6 +2,17 @@
 <br />
 <p></p>
 
+<%= form_tag(entities_path, :method => :get) do %>
+    Choose a domain
+     <%   select_options = @domains.map do |domain|
+           [domain.title, domain.name]
+       end
+    %>
+    <%= select_tag :domain, options_for_select(select_options) %>
+    <%= submit_tag "Get all entities" %>
+    <hr />
+<% end %>
+
 <% @entities.each do |entity| %>
     <% @entity = entity %>
     <%=  render :partial => "render_entity", :locals => {:entity => @entity} %>

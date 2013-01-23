@@ -53,6 +53,12 @@
   <div id="site-main">
     <br />
     <p></p>
+    <% if flash[:alert] %>
+        <p class="flash-error"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:notice] %>
+        <p class="flash-notice"><%= flash[:notice] %></p>
+    <% end %>
     <%= yield %>
 
   </div>
