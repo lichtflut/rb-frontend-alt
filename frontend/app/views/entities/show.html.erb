@@ -1,4 +1,6 @@
 <h1> Entity </h1>
 <br />
 <p></p>
-<%=  render :partial => "render_entity", :locals => {:entity => @entity} %>
+<% unless @entity.nil? %>
+    <%=  render :partial => "render_entity", :locals => {:entity => @entity} %>
+<% end %>

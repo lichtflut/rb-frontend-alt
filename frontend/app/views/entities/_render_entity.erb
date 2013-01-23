@@ -1,10 +1,10 @@
-ID: <%= link_to @entity.originalID, :controller => 'entities', :action => 'show', :id => @entity.id %><br />
+ID: <%= link_to @entity.originalID, :controller => 'entities', :action => 'show', :id => @entity.id, :params => {:domain => @domain} %><br />
 Associtations:
 <%  @entity.associations.each do |assoc| %>
     <br />
     <%=  assoc.predicate %> -
     <%  if assoc.is_entity_assoc %>
-        <%= link_to assoc.object.originalID, :controller => 'entities', :action => 'show', :id => assoc.object.id %>
+        <%= link_to assoc.object.originalID, :controller => 'entities', :action => 'show', :id => assoc.object.id, :params => {:domain => @domain} %>
     <% else %>
         <%= assoc.object %>
     <% end %>

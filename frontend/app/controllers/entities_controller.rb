@@ -16,7 +16,8 @@ class EntitiesController < ApplicationController
     end
     @entities = Array.new
     unless params[:domain].nil?
-      response = RestClient.get("http://localhost:8080/brouker/service/domain/" << params[:domain] << "/entities" ,
+      @domain = params[:domain]
+      response = RestClient.get("http://localhost:8080/brouker/service/domain/" << @domain << "/entities" ,
                                 :cookies => {"lfrb-session-auth" => session[:session_token]})
       json  = ActiveSupport::JSON.decode(response.to_str)
       json["entities"].each do |e|
@@ -41,8 +42,12 @@ class EntitiesController < ApplicationController
 
   def show
     id = params[:id]
-    domain = params[:domain]
-    response = RestClient.get('http://localhost:8080/brouker/service/domain/' << domain << ' /entities/' << id,
+    @domain = params[:domain]
+    if @domain.nil?
+      flash[:alert] = "Missing domain"
+      redirect_to root_path and return
+    end
+    response = RestClient.get('http://localhost:8080/brouker/service/domain/' << @domain << '/entities/' << id,
                               :cookies => {"lfrb-session-auth" => session[:session_token]})
     json = ActiveSupport::JSON.decode(response.to_str)
     @entity = map_json_rsp_to_entity(json)

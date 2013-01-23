@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6666531e-2d11-4575-86ca-e44ddfee4045" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/domain.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/frontend.iml" afterPath="$PROJECT_DIR$/.idea/frontend.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/content.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/content.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/entities_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/entities_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entities/index.html.erb" afterPath="$PROJECT_DIR$/app/views/entities/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entities/_render_entity.erb" afterPath="$PROJECT_DIR$/app/views/entities/_render_entity.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entities/show.html.erb" afterPath="$PROJECT_DIR$/app/views/entities/show.html.erb" />
     </list>
     <ignored path="frontend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,7 +26,7 @@
       <file leaf-file-name="entities_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/entities_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="23" selection-start="146" selection-end="146" vertical-scroll-proportion="0.1734104">
+            <state line="49" column="93" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.76878613">
               <folding />
             </state>
           </provider>
@@ -42,7 +35,16 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/entities/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="148" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_render_entity.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/entities/_render_entity.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="133" selection-start="133" selection-end="133" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -69,16 +71,7 @@
       <file leaf-file-name="sessions_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="23" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/database.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="16" column="17" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -145,14 +138,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/assoc.rb" />
         <option value="$PROJECT_DIR$/app/models/entity.rb" />
         <option value="$PROJECT_DIR$/app/views/entities/render_entity.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/site-structure.css" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/slideshow.css" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/entities/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
@@ -160,6 +151,8 @@
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/domain.rb" />
         <option value="$PROJECT_DIR$/app/views/entities/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/entities/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/entities/_render_entity.erb" />
         <option value="$PROJECT_DIR$/app/controllers/entities_controller.rb" />
       </list>
     </option>
@@ -853,20 +846,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/rest-client-1.6.7/lib/restclient.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="15" selection-start="2704" selection-end="2704" vertical-scroll-proportion="0.35455862">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p362/gems/activesupport-3.2.10/lib/active_support/buffered_logger.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="12" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.35455862">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/rubies/ruby-1.9.3-p362/lib/ruby/1.9.1/logger.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="218" column="4" selection-start="6702" selection-end="6702" vertical-scroll-proportion="0.33285093">
@@ -924,13 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="23" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/.gitkeep">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -952,13 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/entities/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/entities/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="5" selection-start="344" selection-end="344" vertical-scroll-proportion="-8.75">
@@ -966,9 +931,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="17" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/entities/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="148" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/entities/_render_entity.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="133" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/entities_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="23" selection-start="146" selection-end="146" vertical-scroll-proportion="0.1734104">
+        <state line="49" column="93" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.76878613">
           <folding />
         </state>
       </provider>
