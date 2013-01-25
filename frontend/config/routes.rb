@@ -1,5 +1,10 @@
 Frontend::Application.routes.draw do
 
+  resources :users  do
+    resources :hosts
+  end
+
+
   root :to => "entities#index"
 
   resources :entities
@@ -11,6 +16,11 @@ Frontend::Application.routes.draw do
       post 'create'
     end
   end
+
+  match "users/:user_id/hosts/:id/tokens/new"  => "hosts#new_auth_token"   , :as => :new_auth_token  , :via => :get
+  match "users/:user_id/hosts/:id/tokens/"  => "hosts#create_auth_token"   , :as => :create_auth_token , :via => :post
+
+  match "users/:id/enable-host" => "users#enable_host" , :as => :enable_host, :via => :put
 
   match "logout" => "sessions#destroy"
 

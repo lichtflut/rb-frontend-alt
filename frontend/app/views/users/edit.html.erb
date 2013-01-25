@@ -1,0 +1,10 @@
+<h1>Editing profile</h1>
+<br />
+<br />
+
+
+<%= render 'form' %>
+<%=  button_to "Delete this profile", user_path(@user), :method=>:delete, :confirm=>"Are you sure?" %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', root_path %>

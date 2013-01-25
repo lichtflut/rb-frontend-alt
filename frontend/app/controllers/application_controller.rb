@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def check_authorization
-    if(session[:session_token].nil?)
+    if(session[:current_user].nil?)
       return_to=""
       if request.get? then
         return_to= "#{request.protocol}#{request.host_with_port}#{request.fullpath}"

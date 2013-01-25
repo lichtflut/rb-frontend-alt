@@ -2,20 +2,27 @@
 <br />
 <p></p>
 
-<%= form_tag(entities_path, :method => :get) do %>
-    Choose a domain
-     <%   select_options = @domains.map do |domain|
-           [domain.title, domain.name]
-       end
-    %>
-    <%= select_tag :domain, options_for_select(select_options) %>
-    <%= submit_tag "Get all entities" %>
-    <hr />
+<% if @active_host %>
+    Active service host: <%=  @active_host.service_uri %> <br />
 <% end %>
+<% unless @domains.nil? %>
 
-<% @entities.each do |entity| %>
-    <% @entity = entity %>
-    <%=  render :partial => "render_entity", :locals => {:entity => @entity} %>
-    <hr />
+    <%= form_tag(entities_path, :method => :get) do %>
+        Choose a domain
+        <%   select_options = @domains.map do |domain|
+          [domain.title, domain.name]
+        end
+        %>
+        <%= select_tag :domain, options_for_select(select_options) %>
+        <%= submit_tag "Get all entities" %>
+        <hr />
+    <% end %>
+
+    <% @entities.each do |entity| %>
+        <% @entity = entity %>
+        <%=  render :partial => "render_entity", :locals => {:entity => @entity} %>
+        <hr />
+    <% end %>
+
 <% end %>
 

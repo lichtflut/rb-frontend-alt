@@ -1,5 +1,6 @@
 <h1> Entity </h1>
 <br />
+Active service host: <%=  @active_host.service_uri %> <br />
 <p></p>
 <% unless @entity.nil? %>
     <%=  render :partial => "render_entity", :locals => {:entity => @entity} %>

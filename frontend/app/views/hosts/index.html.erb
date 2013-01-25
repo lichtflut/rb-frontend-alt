@@ -1,0 +1,47 @@
+<h1>Configured hosts</h1>
+
+<table class="login-table" border="1">
+  <tr>
+    <th style="padding: 4px; vertical-align: top;">Service location</th>
+    <th style="padding: 4px; vertical-align: top;">Alias</th>
+    <th style="padding: 4px; vertical-align: top;">Authtoken</th>
+    <th style="padding: 4px; vertical-align: top;">Is alive?</th>
+    <th style="padding: 4px; vertical-align: top;"></th>
+    <th style="padding: 4px; vertical-align: top;"></th>
+    <th style="padding: 4px; vertical-align: top;"></th>
+  </tr>
+
+  <% @hosts.each do |host| %>
+      <% enabled = !session[:current_user].active_host.nil?() && session[:current_user].active_host.id.eql?(host.id)  %>
+      <% color = enabled ? "DAF5CF" : "FFFFFF" %>
+      <tr>
+        <td bgcolor="<%=color %>" style="padding: 4px; vertical-align: top;"><%= host.service_uri %></td>
+        <td bgcolor="<%=color %>" style="padding: 4px; vertical-align: top;"><%= host.alias %></td>
+        <td bgcolor="<%=color %>" style="padding: 4px; vertical-align: top;"><%= host.auth_token %></td>
+        <% if host.is_alive?  %>
+            <td bgcolor="<%=color %>" style="padding: 4px; vertical-align: top;"><b><font color="00FF00">true</font></b></td>
+        <% else %>
+            <td bgcolor="<%=color %>" style="padding: 4px; vertical-align: top;"><b><font color="FF0000">false</font></b></td>
+        <% end %>
+
+        <td bgcolor="<%=color %>" style="padding: 4px; vertical-align: top;"><%= link_to 'Edit', edit_user_host_path(session[:current_user],host) %></td>
+        <td bgcolor="<%=color %>" style="padding: 4px; vertical-align: top;"><%= link_to 'Destroy', [session[:current_user],host], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td bgcolor="<%=color %>" style="padding: 4px; vertical-align: top;"><%= link_to 'Add token', new_auth_token_path(session[:current_user], host), data: { confirm: 'Are you sure?' }  %></td>
+        <% if !session[:current_user].active_host.nil?() && session[:current_user].active_host.id.eql?(host.id) %>
+            <td bgcolor="<%=color %>" style="padding: 4px; vertical-align: top;">Enabled</td>
+        <% else %>
+            <td  bgcolor="<%=color %>"style="padding: 4px; vertical-align: top;">
+              <%= form_tag enable_host_path(session[:current_user]), :html => { :class => "button_to" }, :method => :put do %>
+                  <%= hidden_field_tag :host, host.id %>
+                  <button type="submit"><span>Enable</span></button>
+              <% end %>
+            </td>
+        <% end %>
+
+      </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add new host', new_user_host_path(session[:current_user]) %>

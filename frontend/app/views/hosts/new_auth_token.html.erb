@@ -1,9 +1,9 @@
-<h1>Login</h1>
+<h1>Creating Authtoken for <%= @host.alias %></h1>
 <br />
 <p></p>
 
-
-<%= form_tag sessions_path, :method => :post do %>
+<fieldset>
+<%= form_tag create_auth_token_path(session[:current_user],@host) do %>
     <table class="login-table">
       <tr>
         <td style="padding: 4px; vertical-align: top;" width="180"><label for="login">UserID</label></td>
@@ -15,12 +15,9 @@
       </tr>
       <tr>
         <td style="padding: 4px; vertical-align: top;" colspan="2">
-          <%= hidden_field_tag :ref_url, @ref_url  %>
-          <button type="submit"><span>Login</span></button>
+          <button type="submit"><span>Create</span></button>
         </td>
       </tr>
     </table>
 <%end %>
 </fieldset>
-<p></p>
-If you havn't an account yet, just  <%=  link_to 'click here to create one', new_user_path %>

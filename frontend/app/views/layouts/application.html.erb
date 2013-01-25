@@ -27,7 +27,7 @@
   <div id="site-header">
     <div id="header-top-line">
       <span class="delim-small">&gt;</span>
-      <% if session[:session_token].nil? %>
+      <% if session[:current_user].nil? %>
           <%= link_to 'Login', :controller => :sessions, :action => :new %>
       <% else %>
           <%= link_to 'Logout', logout_path %>
@@ -41,9 +41,17 @@
       <span class="logo">lichtflut</span> <span class="logo-extension"><em style="font-size: 20pt;">EntityBrowser</em> </span>
     </div>
     <div id="header-navigation">
-      <div class="menu-item active">
-        <%= link_to 'Entities', entities_path %>
-      </div>
+      <% if session[:current_user] %>
+          <div class="menu-item <%= controller_name.include?("entities") ?  "active" : "" %>">
+            <%= link_to 'Entities', entities_path %>
+          </div>
+          <div class="menu-item <%= controller_name.include?("users") ?  "active" : "" %>">
+            <%= link_to 'Profile', user_path(session[:current_user]) %>
+          </div>
+          <div class="menu-item <%= controller_name.include?("host") ?  "active" : "" %>">
+            <%= link_to 'Host monitor', user_hosts_path(session[:current_user].id) %>
+          </div>
+      <% end %>
       <div class="menu-item-delim"></div>
       <!--<div class="menu-item">
         <a href="unternehmen.html">Test</a>

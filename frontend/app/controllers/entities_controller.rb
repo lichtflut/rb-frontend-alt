@@ -7,8 +7,16 @@ class EntitiesController < ApplicationController
 
   def index
     flash[:notice]=nil
+    @active_host = session[:current_user].active_host
+    if @active_host.nil?
+      flash[:alert] = "You have first to enable a service host on which you want rely"
+      return
+    end
+    unless @active_host.is_alive?
+      flash[:alert] = "Your selected host is not alive"  and return
+    end
     #let's get the domains
-    response = RestClient.get('http://localhost:8080/brouker/service/domains' ,:cookies => {"lfrb-session-auth" => session[:session_token]})
+    response = RestClient.get(@active_host.service_uri + "/domains/" ,:cookies => {"lfrb-session-auth" => CGI::escape(@active_host.auth_token)})
     json  = ActiveSupport::JSON.decode(response.to_str)
     @domains = Array.new
     json["domains"].each do |d|
@@ -17,8 +25,8 @@ class EntitiesController < ApplicationController
     @entities = Array.new
     unless params[:domain].nil?
       @domain = params[:domain]
-      response = RestClient.get("http://localhost:8080/brouker/service/domain/" << @domain << "/entities" ,
-                                :cookies => {"lfrb-session-auth" => session[:session_token]})
+      response = RestClient.get(@active_host.service_uri + "/domain/" +  @domain +  "/entities" ,
+                                :cookies => {"lfrb-session-auth" => CGI::escape(@active_host.auth_token)})
       json  = ActiveSupport::JSON.decode(response.to_str)
       json["entities"].each do |e|
         @entities << map_json_rsp_to_entity(e)
@@ -29,26 +37,27 @@ class EntitiesController < ApplicationController
       end
     end
 
-    # respond_to do |format|
-    #format.html  {render :text => @entities.inspect}
-    #format.json { render :json => entities }
-    #format.xml { render :xml => entities.to_xml }
-    #format.all { render :text => @whole_response }
-    # end
-
   end
 
   #-------------------------------
 
   def show
+    @active_host = session[:current_user].active_host
+    if @active_host.nil?
+      flash[:alert] = "You have first to enable a service host on which you want rely"
+      redirect_to root_path and return
+    end
+    unless @active_host.is_alive?
+      flash[:alert] = "Your selected host is not alive"  and return
+    end
     id = params[:id]
     @domain = params[:domain]
     if @domain.nil?
       flash[:alert] = "Missing domain"
       redirect_to root_path and return
     end
-    response = RestClient.get('http://localhost:8080/brouker/service/domain/' << @domain << '/entities/' << id,
-                              :cookies => {"lfrb-session-auth" => session[:session_token]})
+    response = RestClient.get(@active_host.service_uri + "/domain/" +  @domain +  "/entities/" + id,
+                              :cookies => {"lfrb-session-auth" => CGI::escape(@active_host.auth_token)})
     json = ActiveSupport::JSON.decode(response.to_str)
     @entity = map_json_rsp_to_entity(json)
   end
